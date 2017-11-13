@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Text,
     TextInput,
-    TouchableHighlight,
+    TouchableOpacity,
     ScrollView
 } from 'react-native';
 
@@ -54,9 +54,9 @@ export default class Incident extends React.Component {
                         borderWidth: 1
                     }}
                 />
-                <TouchableHighlight style={mainStyles.buttonContainer} onPress={() => console.log("Submit Incident")}>
+                <TouchableOpacity style={mainStyles.buttonContainer} onPress={() => console.log("Submit Incident")}>
                     <Text style={mainStyles.button}>Submit Incident</Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
             </ScrollView>
         );
     }

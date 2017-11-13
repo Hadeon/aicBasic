@@ -50,6 +50,7 @@ const mainStyles = StyleSheet.create({
         color: 'white',
         width: '50%',
         marginTop: 20,
+		marginBottom: 50,
         padding: 10,
         textAlign: 'center',
         fontSize: 20,
@@ -77,7 +78,9 @@ const mainStyles = StyleSheet.create({
         overflow: 'scroll',
         borderColor: 'skyblue',
         borderWidth: 1,
-        backgroundColor: '#f0f8ff'
+        backgroundColor: '#f0f8ff',
+		textAlign: 'left',
+		textAlignVertical: 'top'
     },
     dropdown: {
         backgroundColor: '#f0f8ff',

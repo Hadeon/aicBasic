@@ -33,7 +33,7 @@ export default class Location extends React.Component {
                     placeholder="[SELECT ONE]"
                     label=''
                     data={locations}
-                    backgroundColor={'#f0f8ff'}
+                    // backgroundColor={'#f0f8ff'}
                     fontSize={20}
                     textcolor={'gray'}
                     selectedItemColor={'black'}

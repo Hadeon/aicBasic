@@ -15,7 +15,7 @@ export default class Splash extends Component {
         // Once the code is entered, and the Authenticate button is hit, the app will hit the API and wait for a confirmation as well as the object containing the Location, Employee, etc. data
         // Once authorized, the app will locally save the Authorization Code using react-native-local-storage and set a flag for isLoggedIn.
         // Whenever the app boots it will see the isLoggedIn flag and will direct the user to the Incident page
-        const isLoggedIn = true;
+        const isLoggedIn = false;
 
         const routeName = isLoggedIn ? "Incident" : "Authenticate";
 
