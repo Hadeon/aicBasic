@@ -47,6 +47,7 @@ export default class Authenticate extends React.Component {
                     <Text style={mainStyles.button}>Authenticate</Text>
                 </TouchableOpacity>
                 <Text style={mainStyles.errorMessage}>{this.state.valid}</Text>
+                <Text style={mainStyles.footer}>Applications International 2017</Text>
             </View>
         );
     }

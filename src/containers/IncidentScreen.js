@@ -23,6 +23,7 @@ export default class Incident extends React.Component {
     static: navigationOptions = {
         title: 'Incident Details',
     };
+
     render() {
         return (
 
@@ -46,10 +47,10 @@ export default class Incident extends React.Component {
                 <IncidentDate/>
                 <Text style={mainStyles.headerTwo}>Active</Text>
                 <CheckBox
+                    id="activeBox"
                     label=''
                     onChange={(checked) => console.log('I am checked', checked)}
                     checkboxStyle={{
-                        backgroundColor: '#f0f8ff',
                         borderColor: 'skyblue',
                         borderWidth: 1
                     }}

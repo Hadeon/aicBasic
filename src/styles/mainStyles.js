@@ -14,7 +14,8 @@ const mainStyles = StyleSheet.create({
     },
     incidentScreen:{
         padding: '5%',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        marginTop: 25
     },
     ogp:{
         width: 100,
@@ -78,15 +79,19 @@ const mainStyles = StyleSheet.create({
         overflow: 'scroll',
         borderColor: 'skyblue',
         borderWidth: 1,
-        backgroundColor: '#f0f8ff',
 		textAlign: 'left',
 		textAlignVertical: 'top'
     },
     dropdown: {
-        backgroundColor: '#f0f8ff',
         height: 30,
         color: 'black',
         fontSize: 20
+    },
+    footer: {
+        textAlignVertical: 'bottom',
+        textAlign: 'center',
+        fontSize: 12,
+        color: 'gray'
     }
 });
 
