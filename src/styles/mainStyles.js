@@ -51,7 +51,6 @@ const mainStyles = StyleSheet.create({
         color: 'white',
         width: '50%',
         marginTop: 20,
-		marginBottom: 50,
         padding: 10,
         textAlign: 'center',
         fontSize: 20,
@@ -64,13 +63,11 @@ const mainStyles = StyleSheet.create({
         fontSize: 15,
         color: 'red',
         fontWeight: 'bold',
-        textAlign: 'center',
-        marginTop: '30%'
+        marginTop: 10
     },
     datepicker: {
         margin: 10,
         width: 200,
-
     },
     textInput: {
         fontSize: 20,
@@ -88,8 +85,11 @@ const mainStyles = StyleSheet.create({
         fontSize: 20
     },
     footer: {
-        textAlignVertical: 'bottom',
-        textAlign: 'center',
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'flex-end'
+    },
+    footerText: {
         fontSize: 12,
         color: 'gray'
     }
