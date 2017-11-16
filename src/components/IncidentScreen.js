@@ -10,12 +10,12 @@ import { StackNaviagtor } from 'react-navigation';
 import DatePicker from 'react-native-datepicker';
 import CheckBox from 'react-native-checkbox';
 
-import SeverityLevel from '../components/severityLevel.js';
-import Location from '../components/location.js';
-import BriefDescription from '../components/briefDescription.js';
-import AdditionalDetails from '../components/additionalDetails.js';
-import IncidentDate from '../components/incidentDate.js';
-import Employee from '../components/employee.js';
+import SeverityLevel from '../containers/severityLevel.js';
+import Location from '../containers/location.js';
+import BriefDescription from '../containers/briefDescription.js';
+import AdditionalDetails from '../containers/additionalDetails.js';
+import IncidentDate from '../containers/incidentDate.js';
+import Employee from '../containers/employee.js';
 
 import mainStyles from '../styles/mainStyles.js';
 

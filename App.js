@@ -5,35 +5,41 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { addNavigationHelpers } from 'react-navigation';
+import { bindActionCreators, createStore } from 'redux';
+import { ActionCreators } from './src/actions/index.js';
+import { AppNavigator } from './src/components/router.js';
+import { connect, Provider } from 'react-redux';
 
-import { StackNavigator } from 'react-navigation';
+import reducer from './src/reducers/index.js';
 
-import Splash from './src/containers/SplashScreen.js';
-import Authenticate from './src/containers/AuthenticateScreen.js';
-import Incident from './src/containers/IncidentScreen.js';
+const store = createStore(reducer);
 
-const App = StackNavigator(
-    {
-        Spash: {
-            screen: Splash
-        },
-        Authenticate: {
-            screen: Authenticate,
-        },
-        Incident: {
-            screen: Incident,
-        },
-    },
-    {
-        headerMode: 'none',
-        gesturesEnabled: false
+const bindAction = dispatch => {
+    return Object.assign({dispatch: dispatch}, bindActionCreators(ActionCreators, dispatch));
+    // add dispatch to props, so it's available to addNavigationHelpers
+};
+
+const mapStateToProps = state => ({
+    navigation: state.navigation,
+});
+
+const ConnectedRoot = connect(
+    (state) => ({
+        state: state.reducer
+    }),
+    (dispatch) => ({
+        actions: bindActionCreators(ActionCreators, dispatch)
+    })
+)(AppNavigator);
+
+export default class App extends Component {
+    render() {
+        const { state, actions } = this.props;
+        return (
+            <Provider store={store}>
+                <ConnectedRoot/>
+            </Provider>
+        );
     }
-);
-
-export default App;
+}

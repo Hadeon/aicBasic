@@ -6,7 +6,6 @@ import {
     TouchableOpacity,
     Image
 } from 'react-native';
-
 import { StackNavigator } from 'react-navigation';
 
 import mainStyles from '../styles/mainStyles.js';
@@ -26,11 +25,9 @@ export default class Authenticate extends React.Component {
 
         const checkCode = () => {
             if(this.state.text.length == 12){
-                isLoggedIn = true;
-                navigate('Incident');
+                    navigate("Incident")
             }
             else{
-                isLoggedIn = false;
                 this.setState({valid: 'Invalid code.'});
             }
         }
