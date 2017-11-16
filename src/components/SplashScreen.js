@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
-var localStorage = require('react-native-local-storage');
-
 export default class Splash extends Component {
 
     componentDidMount() {
