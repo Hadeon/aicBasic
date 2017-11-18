@@ -5,7 +5,7 @@ import Incident from './IncidentScreen.js';
 
 export const AppNavigator = StackNavigator(
     {
-        Spash: {
+        Splash: {
             screen: Splash
         },
         Authenticate: {

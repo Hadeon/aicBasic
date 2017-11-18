@@ -21,16 +21,12 @@ const bindAction = dispatch => {
 };
 
 const mapStateToProps = state => ({
-    navigation: state.navigation,
+    authorized: state.authorized
 });
 
 const ConnectedRoot = connect(
-    (state) => ({
-        state: state.reducer
-    }),
-    (dispatch) => ({
-        actions: bindActionCreators(ActionCreators, dispatch)
-    })
+    mapStateToProps,
+    bindAction
 )(AppNavigator);
 
 export default class App extends Component {

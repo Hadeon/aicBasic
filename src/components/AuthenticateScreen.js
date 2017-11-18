@@ -4,13 +4,15 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    Image
+    Image,
+    AsyncStorage
 } from 'react-native';
+import * as actions from '../actions';
 import { StackNavigator } from 'react-navigation';
-
+import { connect } from 'react-redux';
 import mainStyles from '../styles/mainStyles.js';
 
-export default class Authenticate extends React.Component {
+class Authenticate extends React.Component {
     constructor(props){
         super(props);
         this.state = { text: '', valid: ''};
@@ -21,11 +23,15 @@ export default class Authenticate extends React.Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation;
+        function setAuthKey(value){
+            AsyncStorage.setItem('authKey', value).then((value) => console.log(value));
+        }
 
+        const { navigate } = this.props.navigation;
         const checkCode = () => {
             if(this.state.text.length == 12){
-                    navigate("Incident")
+                setAuthKey(this.state.text);
+                navigate("Incident");
             }
             else{
                 this.setState({valid: 'Invalid code.'});
@@ -54,3 +60,5 @@ export default class Authenticate extends React.Component {
         );
     }
 }
+
+export default connect()(Authenticate);

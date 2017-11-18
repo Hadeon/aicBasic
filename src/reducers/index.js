@@ -6,6 +6,27 @@ const navigation = (state, action) => {
     return newState || state;
 }
 
+const initialState = false;
+
+const authorized = (state, action) => {
+    if (typeof state === "undefined") {
+        return initialState
+    }
+    switch (action.type) {
+        case 'VALID':
+            return Object.assign({}, state, {
+                authorized: true
+            });
+        case 'INVALID':
+            return Object.assign({}, state, {
+                authorized: false
+            });
+            default:
+                return state
+    }
+}
+
 export default combineReducers({
-    navigation // this needs to match the this.props.navigation given to the addNavigationHelpers
+    authorized,
+    navigation
 });
