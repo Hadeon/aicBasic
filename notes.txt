@@ -1,0 +1,48 @@
+
+1. Authentication
+    a. User enters the code provided through email/text.
+
+    b. Mobile app makes a request to the API with the code.
+
+    c. The API checks the DB to see if the code is valid and if it has been registered yet.
+
+    d. The API responds with a "true" or "false" for validation.
+
+        +++ If "true" then the mobile app saves the code into AsyncStorage so that it persists between app shutdowns.
+
+    e. The mobile app receives a "true" and then requests for the data relative to whatever client that code was registered from.
+
+        +++ All subsequent requests include the code
+
+    f. The API receives the request and sends back the Locations/Incident Levels/Names/etc. whatever data is needed
+
+    g. This data is then used to populate the dropdowns in the mobile app AND is stored locally.
+
+        +++ Local storage options
+
+            --- Possibly utilize Realm.js so that storage can be indexed and more cleanly organized.
+
+            --- Only use AsyncStorage for individual codes i.e. the authorization token
+
+2. API Connection
+    a. Does the API require more validation than merely the authorization code?
+
+        +++ If so: look into device-info options
+
+            --- Request access to the phone's IMEI code and also provide that to the API so that you aren't only verifying that
+                the code is registered, but also that the particular device is registered.
+
+3. Offline First
+    a. Anytime that the app is booted up, make a request to the API to check if any of the stored Locations/Incident Levels/Names
+        have changed.
+
+    b. Utilize React Native's connection to NETINFO so that the mobile app knows if an internet connection is available.
+
+        +++ If a connection is not found, when you enter an Incident, it will be stored locally (Realm or AsyncStorage) until
+            NETINFO detects a connection.
+
+            --- Have this running in the background? Could simply just have a flag so that when NETINFO is "good" then the app
+                sends a single POST to the API to store the Incident which was saved locally.
+
+            --- Once the API responds with a "success" for that particular Incident, then it is removed from local storage so
+                that the app doesn't end up with an ever-growing amount of locally stored data.
