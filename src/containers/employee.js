@@ -33,7 +33,7 @@ export default class Employee extends React.Component {
                     placeholder="[SELECT ONE]"
                     label=''
                     data={employees}
-                    // backgroundColor={'#f0f8ff'}
+                    backgroundColor={'#f0f8ff'}
                     fontSize={20}
                     textcolor={'gray'}
                     selectedItemColor={'black'}

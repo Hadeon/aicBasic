@@ -16,13 +16,14 @@
 
     f. The API receives the request and sends back the Locations/Incident Levels/Names/etc. whatever data is needed
 
-    g. This data is then used to populate the dropdowns in the mobile app AND is stored locally.
+    g. This data is then used to populate the dropdowns in the mobile app AND is stored locally once received.
 
         +++ Local storage options
 
             --- Possibly utilize Realm.js so that storage can be indexed and more cleanly organized.
 
-            --- Only use AsyncStorage for individual codes i.e. the authorization token
+            --- Only use AsyncStorage for individual codes i.e. the authorization token (to prevent from slow loads due to
+            long location lists and their IDs needing to be serialized.)
 
 2. API Connection
     a. Does the API require more validation than merely the authorization code?

@@ -12,10 +12,10 @@ const mainStyles = StyleSheet.create({
         paddingTop: '20%',
         backgroundColor: 'white'
     },
-    incidentScreen:{
+    mainContainer:{
         padding: '5%',
         backgroundColor: 'white',
-        marginTop: 25
+        marginTop: 75
     },
     ogp:{
         width: 100,
@@ -57,6 +57,7 @@ const mainStyles = StyleSheet.create({
     },
     buttonContainer: {
         marginTop: 20,
+        marginBottom: 30,
         alignItems: 'center'
     },
     errorMessage: {
@@ -92,6 +93,50 @@ const mainStyles = StyleSheet.create({
     footerText: {
         fontSize: 12,
         color: 'gray'
+    },
+    navBar: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        position: 'absolute',
+        width: '100%',
+        backgroundColor: '#252525',
+        top: 25,
+    },
+    navBarButton: {
+        padding: 10,
+        backgroundColor: '#555',
+        marginRight: 5,
+        marginTop: 5,
+        marginBottom: 5
+    },
+    navBarText: {
+        color: 'white',
+        fontSize: 15,
+        textAlign: 'center',
+    },
+    navHeader: {
+        position: 'absolute',
+        left: 10,
+        marginTop: 15,
+        fontSize: 15,
+        color: 'white'
+    },
+    recordHistory: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 10,
+        backgroundColor: '#e0e8ee',
+        marginTop: 10,
+        height: 50
+    },
+    green: {
+        color: 'green',
+        marginLeft: 25
+    },
+    red: {
+        color: 'red',
+        marginLeft: 25
     }
 });
 

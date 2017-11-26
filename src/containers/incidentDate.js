@@ -27,7 +27,7 @@ export default class IncidentDate extends React.Component {
                     onDateChange={(date) => {this.setState({date: date})}}
                     customStyles={{
                         dateInput: {
-                            // backgroundColor: '#f0f8ff',
+                            backgroundColor: '#f0f8ff',
                             width: 40
                         },
                         placeholderText: {
