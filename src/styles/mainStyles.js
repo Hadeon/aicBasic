@@ -128,7 +128,10 @@ const mainStyles = StyleSheet.create({
         padding: 10,
         backgroundColor: '#e0e8ee',
         marginTop: 10,
-        height: 50
+        height: 50,
+		borderColor: '#b0b6bb',
+		borderStyle: 'solid',
+		borderWidth: 1
     },
     green: {
         color: 'green',

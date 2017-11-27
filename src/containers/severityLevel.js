@@ -32,7 +32,7 @@ export default class SeverityLevel extends React.Component {
                     placeholder="[SELECT ONE]"
                     label=''
                     data={severityLevel}
-                    backgroundColor={'#f0f8ff'}
+                    //backgroundColor={'#f0f8ff'}
                     fontSize={20}
                     textcolor={'gray'}
                     selectedItemColor={'black'}
