@@ -44,7 +44,8 @@ class Authenticate extends React.Component {
                     style={mainStyles.ogp}
                     source={require('../images/ogp.png')}
                     />
-                <Text style={mainStyles.headerText}>Please enter your authorization code.</Text>
+				<Text style={mainStyles.headerText}>Incident Management Mobile</Text>
+				<Text style={mainStyles.footerText}>Please enter your authorization code.</Text>
                 <TextInput style={mainStyles.inputContainer} onChangeText={(text)=> this.setState({text})} value={this.state.text} maxLength= {12}/>
                 <TouchableOpacity style={mainStyles.buttonContainer} onPress={checkCode}>
                     <Text style={mainStyles.button}>Authenticate</Text>
