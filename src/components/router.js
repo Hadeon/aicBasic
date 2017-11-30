@@ -3,6 +3,7 @@ import Splash from './SplashScreen.js';
 import Authenticate from './AuthenticateScreen.js';
 import Incident from './IncidentScreen.js';
 import History from './HistoryScreen.js';
+import Home from './HomeScreen.js';
 
 export const AppNavigator = StackNavigator(
     {
@@ -17,6 +18,9 @@ export const AppNavigator = StackNavigator(
         },
         History: {
             screen: History,
+        },
+        Home: {
+            screen: Home
         }
     },
     {

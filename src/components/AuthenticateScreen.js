@@ -31,7 +31,7 @@ class Authenticate extends React.Component {
         const checkCode = () => {
             if(this.state.text.length == 12){
                 setAuthKey(this.state.text);
-                navigate("Incident");
+                navigate("Home");
             }
             else{
                 this.setState({valid: 'Invalid code.'});
@@ -40,12 +40,9 @@ class Authenticate extends React.Component {
 
         return (
             <View style={mainStyles.authenticationScreen}>
-                <Image
-                    style={mainStyles.ogp}
-                    source={require('../images/ogp.png')}
-                    />
-                <Text style={mainStyles.headerText}>Incident Management Mobile</Text>
-                <Text style={mainStyles.footerText}>Please enter your authorization code.</Text>
+                <Image style={mainStyles.ogp} source={require('../images/ogp.png')}/>
+				<Text style={mainStyles.headerText}>Incident Management Mobile</Text>
+				<Text style={mainStyles.footerText}>Please enter your authorization code.</Text>
                 <TextInput style={mainStyles.inputContainer} onChangeText={(text)=> this.setState({text})} value={this.state.text} maxLength= {12}/>
                 <TouchableOpacity style={mainStyles.buttonContainer} onPress={checkCode}>
                     <Text style={mainStyles.button}>Authenticate</Text>
@@ -56,7 +53,6 @@ class Authenticate extends React.Component {
                 <View style={mainStyles.footer}>
                     <Text style={mainStyles.footerText}>Applications International 2017</Text>
                 </View>
-
             </View>
         );
     }

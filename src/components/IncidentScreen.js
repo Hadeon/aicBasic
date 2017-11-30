@@ -4,10 +4,11 @@ import {
     TextInput,
     TouchableOpacity,
     ScrollView,
-    View
+    View,
+    Image
 } from 'react-native';
 
-import { StackNaviagtor } from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 import DatePicker from 'react-native-datepicker';
 import CheckBox from 'react-native-checkbox';
 
@@ -29,8 +30,15 @@ export default class Incident extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
 
-        const handleNavigate = () => {
-            navigate("History");
+        const resetAction = NavigationActions.reset({
+            index: 0,
+            actions: [
+                NavigationActions.navigate({ routeName: "Home" })
+            ]
+        })
+
+        const handleBack = () => {
+            this.props.navigation.dispatch(resetAction);
         }
 
         return (
@@ -41,9 +49,9 @@ export default class Incident extends React.Component {
             // Once the confirmation response is acquired the data is dropped from the device
             <View>
                 <View style={mainStyles.navBar}>
-                    <Text style={mainStyles.navHeader}>Create Record</Text>
-                    <TouchableOpacity onPress={handleNavigate} style={mainStyles.navBarButton}>
-                        <Text style={mainStyles.navBarText}>History</Text>
+                    <Image style={mainStyles.ogpNav} source={require('../images/ogp.png')}/>
+                    <TouchableOpacity onPress={handleBack} style={mainStyles.navBarButton}>
+                        <Text style={mainStyles.navBarText}>Back</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={mainStyles.mainContainer}>
@@ -64,7 +72,7 @@ export default class Incident extends React.Component {
                             borderWidth: 1
                         }}
                     />
-                    <TouchableOpacity style={mainStyles.buttonContainer} onPress={() => console.log("Submit Incident")}>
+                <TouchableOpacity style={mainStyles.buttonContainer} onPress={() => console.log("Submit Incident")}>
                         <Text style={mainStyles.button}>Submit Incident</Text>
                     </TouchableOpacity>
                 </ScrollView>

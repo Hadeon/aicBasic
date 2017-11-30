@@ -34,7 +34,7 @@ export default class Splash extends Component {
         // Once authorized, the app will locally save the Authorization Code using react-native-local-storage and set a flag for isLoggedIn.
         // Whenever the app boots it will see the isLoggedIn flag and will direct the user to the Incident page
 
-        const routeName = this.state.isLoggedIn ? "Incident" : "Authenticate";
+        const routeName = this.state.isLoggedIn ? "Home" : "Authenticate";
 
         const resetAction = NavigationActions.reset({
             index: 0,

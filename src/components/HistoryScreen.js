@@ -4,10 +4,11 @@ import {
     TextInput,
     TouchableOpacity,
     ScrollView,
-    View
+    View,
+    Image
 } from 'react-native';
 
-import { StackNaviagtor } from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 
 import NavBar from '../containers/navBar.js';
 import RecordHistory from '../containers/recordHistory.js';
@@ -22,16 +23,23 @@ export default class History extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
 
-        const handleNavigate = (routeName) => {
-            navigate("Incident");
+        const resetAction = NavigationActions.reset({
+            index: 0,
+            actions: [
+                NavigationActions.navigate({ routeName: "Home" })
+            ]
+        })
+
+        const handleBack = () => {
+            this.props.navigation.dispatch(resetAction);
         }
 
         return (
             <View>
                 <View style={mainStyles.navBar}>
-                    <Text style={mainStyles.navHeader}>History</Text>
-                    <TouchableOpacity onPress={handleNavigate} style={mainStyles.navBarButton}>
-                        <Text style={mainStyles.navBarText}>Create Record</Text>
+                    <Image style={mainStyles.ogpNav} source={require('../images/ogp.png')}/>
+                    <TouchableOpacity onPress={handleBack} style={mainStyles.navBarButton}>
+                        <Text style={mainStyles.navBarText}>Back</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={mainStyles.mainContainer}>

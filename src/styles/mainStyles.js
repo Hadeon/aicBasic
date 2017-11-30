@@ -8,18 +8,33 @@ const mainStyles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '5%',
+        paddingRight: '5%',
+        paddingLeft: '5%',
         paddingTop: '20%',
         backgroundColor: 'white'
     },
     mainContainer:{
         padding: '5%',
         backgroundColor: 'white',
-        marginTop: 75
+        marginTop: 75,
+        paddingBottom: '100%'
+    },
+    homeContainer:{
+        padding: '5%',
+        backgroundColor: 'white',
+        marginTop: 75,
+        paddingBottom: '100%'
     },
     ogp:{
         width: 100,
         height: 100
+    },
+    ogpNav: {
+        width: 30,
+        height :30,
+        marginTop: 10,
+        position: 'absolute',
+        left: 10,
     },
     headerText: {
         fontSize: 25,
@@ -44,7 +59,7 @@ const mainStyles = StyleSheet.create({
         textAlign: 'center',
         borderColor: 'skyblue',
         backgroundColor: '#f0f8ff',
-        borderWidth: 1,
+        borderWidth: 1
     },
     button: {
         backgroundColor: '#6495ED',
@@ -54,17 +69,20 @@ const mainStyles = StyleSheet.create({
         padding: 10,
         textAlign: 'center',
         fontSize: 20,
+        shadowColor: '#333',
+        shadowOffset: {width: 3, height: 3},
+        shadowOpacity: .8
     },
     buttonContainer: {
-        marginTop: 20,
-        marginBottom: 30,
+        paddingBottom: 30,
         alignItems: 'center'
     },
     errorMessage: {
         fontSize: 15,
         color: 'red',
         fontWeight: 'bold',
-        marginTop: 10
+        marginTop: 10,
+        paddingBottom: 10
     },
     datepicker: {
         margin: 10,
@@ -88,7 +106,10 @@ const mainStyles = StyleSheet.create({
     footer: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        bottom: 10
     },
     footerText: {
         fontSize: 12,
@@ -102,11 +123,12 @@ const mainStyles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#252525',
         top: 25,
+        height: 75
     },
     navBarButton: {
+        position: 'absolute',
+        left: 50,
         padding: 10,
-        backgroundColor: '#555',
-        marginRight: 5,
         marginTop: 5,
         marginBottom: 5
     },
@@ -128,7 +150,10 @@ const mainStyles = StyleSheet.create({
         padding: 10,
         backgroundColor: '#e0e8ee',
         marginTop: 10,
-        height: 50
+        height: 50,
+		borderColor: '#b0b6bb',
+		borderStyle: 'solid',
+		borderWidth: 1
     },
     green: {
         color: 'green',
