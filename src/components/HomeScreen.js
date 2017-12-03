@@ -4,7 +4,8 @@ import {
 	Text,
 	TouchableOpacity,
 	ScrollView,
-	Image
+	Image,
+	NetInfo
 } from 'react-native';
 
 import mainStyles from '../styles/mainStyles.js';
@@ -12,6 +13,10 @@ import mainStyles from '../styles/mainStyles.js';
 import NavBar from '../containers/navBar.js';
 
 export default class Home extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {netTest: 'none'};
+	}
 
 	static navigationOptions = ({ navigation }) => ({
 		title: 'Home',
@@ -22,18 +27,29 @@ export default class Home extends React.Component {
         const { navigate } = this.props.navigation;
 
         const navigateHistory = () => {
-            navigate("History",
-			{
-
-			});
+            navigate("History");
         }
 
 		const navigateIncident = () => {
-			navigate("Incident",
-			{
-
-			});
+			navigate("Incident");
 		}
+
+		NetInfo.isConnected.fetch().then(isConnected => {
+		  this.setState({ netTest: 'App connection : ' + (isConnected ? 'online' : 'offline')});
+		});
+
+		function handleFirstConnectivityChange(isConnected) {
+			NetInfo.isConnected.removeEventListener(
+				'connectionChange',
+				handleFirstConnectivityChange
+			);
+		}
+
+		NetInfo.isConnected.addEventListener(
+			'connectionChange',
+			handleFirstConnectivityChange
+		);
+
 		return(
 			<View>
 
@@ -48,6 +64,7 @@ export default class Home extends React.Component {
 							<Text style={mainStyles.button}>Record History</Text>
 						</TouchableOpacity>
 					</View>
+					<Text>{this.state.netTest}</Text>
                 </ScrollView>
 				<View style={mainStyles.footer}>
 					<Text style={mainStyles.footerText}>Applications International 2017</Text>
