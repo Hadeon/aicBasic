@@ -16,9 +16,26 @@ import RecordHistory from '../containers/recordHistory.js';
 import mainStyles from '../styles/mainStyles.js';
 
 export default class History extends React.Component {
-    static: navigationOptions = {
+    static navigationOptions = ({ navigation }) => ({
         title: 'History',
-    };
+        header: <NavBar backButton={
+            <TouchableOpacity onPress={
+                    handleBack = () => {
+
+                        const { navigate } = {navigation};
+
+                        const resetAction = NavigationActions.reset({
+                            index: 0,
+                            actions: [
+                                NavigationActions.navigate({ routeName: "Home" })
+                            ]
+                        })
+
+                        navigation.dispatch(resetAction);}} style={mainStyles.navBarButton}>
+                <Text style={mainStyles.navBarText}>Back</Text>
+            </TouchableOpacity>
+        }/>
+      });
 
     render() {
         const { navigate } = this.props.navigation;
@@ -36,12 +53,6 @@ export default class History extends React.Component {
 
         return (
             <View>
-                <View style={mainStyles.navBar}>
-                    <Image style={mainStyles.ogpNav} source={require('../images/ogp.png')}/>
-                    <TouchableOpacity onPress={handleBack} style={mainStyles.navBarButton}>
-                        <Text style={mainStyles.navBarText}>Back</Text>
-                    </TouchableOpacity>
-                </View>
                 <ScrollView style={mainStyles.mainContainer}>
                     <Text style={mainStyles.headerText}>Records Created</Text>
                     <Text style={mainStyles.footerText}>If a record is submitted while offline it will be accompanied by a red marker. Once internet connection is reestablished the record will submit and the marker will be updated to green.</Text>

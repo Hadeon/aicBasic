@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-    StyleSheet
+    StyleSheet,
+    Platform
 } from 'react-native';
 
 const mainStyles = StyleSheet.create({
@@ -10,19 +11,19 @@ const mainStyles = StyleSheet.create({
         justifyContent: 'center',
         paddingRight: '5%',
         paddingLeft: '5%',
-        paddingTop: '20%',
+        paddingTop: '15%',
         backgroundColor: 'white'
     },
     mainContainer:{
         padding: '5%',
         backgroundColor: 'white',
-        marginTop: 75,
+        marginTop: 70,
         paddingBottom: '100%'
     },
     homeContainer:{
         padding: '5%',
         backgroundColor: 'white',
-        marginTop: 75,
+        marginTop: 70,
         paddingBottom: '100%'
     },
     ogp:{
@@ -122,8 +123,8 @@ const mainStyles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         backgroundColor: '#252525',
-        top: 25,
-        height: 75
+        top: (Platform.OS === 'ios') ? 20 : 0,
+        height: 50
     },
     navBarButton: {
         position: 'absolute',

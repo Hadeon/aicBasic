@@ -9,26 +9,34 @@ import {
 
 import mainStyles from '../styles/mainStyles.js';
 
+import NavBar from '../containers/navBar.js';
+
 export default class Home extends React.Component {
-	static: navigationOptions = {
-        title: 'Home',
-    };
+
+	static navigationOptions = ({ navigation }) => ({
+		title: 'Home',
+		header: <NavBar/>
+	})
 
     render() {
         const { navigate } = this.props.navigation;
 
         const navigateHistory = () => {
-            navigate("History");
+            navigate("History",
+			{
+
+			});
         }
 
 		const navigateIncident = () => {
-			navigate("Incident");
+			navigate("Incident",
+			{
+
+			});
 		}
 		return(
 			<View>
-				<View style={mainStyles.navBar}>
-					<Image style={mainStyles.ogpNav} source={require('../images/ogp.png')}/>
-				</View>
+
                 <ScrollView style={mainStyles.homeContainer}>
                     <Text style={mainStyles.headerText}>Welcome</Text>
 					<Text style={mainStyles.footerText}>If a record is created while offline, the data will be submitted upon the application being notified of a change in connection.</Text>
@@ -48,3 +56,8 @@ export default class Home extends React.Component {
 		)
 	}
 }
+
+// <View style={mainStyles.navBar}>
+// 	<Image style={mainStyles.ogpNav} source={require('../images/ogp.png')}/>
+// </View>
+//

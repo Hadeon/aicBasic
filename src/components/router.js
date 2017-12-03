@@ -1,3 +1,8 @@
+import React from 'react';
+import {
+    Text
+} from 'react-native'
+
 import { StackNavigator } from 'react-navigation';
 import Splash from './SplashScreen.js';
 import Authenticate from './AuthenticateScreen.js';
@@ -14,7 +19,7 @@ export const AppNavigator = StackNavigator(
             screen: Authenticate,
         },
         Incident: {
-            screen: Incident,
+            screen: Incident
         },
         History: {
             screen: History,
@@ -24,7 +29,6 @@ export const AppNavigator = StackNavigator(
         }
     },
     {
-        headerMode: 'none',
-        gesturesEnabled: false
+        gesturesEnabled: true
     }
 );

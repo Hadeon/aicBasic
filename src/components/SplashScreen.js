@@ -16,7 +16,7 @@ export default class Splash extends Component {
     }
 
     componentDidMount() {
-        AsyncStorage.clear();
+        //AsyncStorage.clear();
         AsyncStorage.getItem('authKey').then((value) => this.setState({ 'keyFound' : value }));
         setTimeout(this.checkLoggedInt.bind(this), 250);
     }

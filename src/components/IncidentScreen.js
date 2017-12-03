@@ -5,7 +5,7 @@ import {
     TouchableOpacity,
     ScrollView,
     View,
-    Image
+    Image,
 } from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
@@ -23,23 +23,29 @@ import NavBar from '../containers/navBar.js';
 import mainStyles from '../styles/mainStyles.js';
 
 export default class Incident extends React.Component {
-    static: navigationOptions = {
-        title: 'Incident Details',
-    };
+
+    static navigationOptions = ({ navigation }) => ({
+        title: 'Incident',
+        header: <NavBar backButton={
+            <TouchableOpacity onPress={
+                    handleBack = () => {
+
+                        const { navigate } = {navigation};
+
+                        const resetAction = NavigationActions.reset({
+                            index: 0,
+                            actions: [
+                                NavigationActions.navigate({ routeName: "Home" })
+                            ]
+                        })
+
+                        navigation.dispatch(resetAction);}} style={mainStyles.navBarButton}>
+                <Text style={mainStyles.navBarText}>Back</Text>
+            </TouchableOpacity>
+        }/>
+      });
 
     render() {
-        const { navigate } = this.props.navigation;
-
-        const resetAction = NavigationActions.reset({
-            index: 0,
-            actions: [
-                NavigationActions.navigate({ routeName: "Home" })
-            ]
-        })
-
-        const handleBack = () => {
-            this.props.navigation.dispatch(resetAction);
-        }
 
         return (
             // Leverage the NetInfo to expose information on online/offline status so that the application will store the data locally until a wifi/wireless connection is made
