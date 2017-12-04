@@ -54,12 +54,6 @@ export default class Incident extends React.Component {
 
             // Once the confirmation response is acquired the data is dropped from the device
             <View>
-                <View style={mainStyles.navBar}>
-                    <Image style={mainStyles.ogpNav} source={require('../images/ogp.png')}/>
-                    <TouchableOpacity onPress={handleBack} style={mainStyles.navBarButton}>
-                        <Text style={mainStyles.navBarText}>Back</Text>
-                    </TouchableOpacity>
-                </View>
                 <ScrollView style={mainStyles.mainContainer}>
                     <Text style={mainStyles.headerText}>Incident Details</Text>
                     <Location/>

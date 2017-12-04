@@ -16,7 +16,7 @@ export const AppNavigator = StackNavigator(
             screen: Splash
         },
         Authenticate: {
-            screen: Authenticate,
+            screen: Authenticate
         },
         Incident: {
             screen: Incident

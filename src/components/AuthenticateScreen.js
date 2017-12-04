@@ -18,9 +18,9 @@ class Authenticate extends React.Component {
         this.state = { text: '', valid: ''};
     }
 
-    static: navigationOptions = {
-        title: 'Authenticate',
-    }
+	static navigationOptions = {
+	header: null,
+	};
 
     render() {
         function setAuthKey(value){
